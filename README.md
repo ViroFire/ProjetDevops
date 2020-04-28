@@ -13,3 +13,4 @@
 
 
 ### Feedback
+- Maven est un outil qui a l'air très complet et pratique, qui peut finalement résoudre nombre de problèmes relativement "facilement". Malgré tout l'outil est assez compliqué à configurer, notamment le fichier pom.xml, même avec le cours et la documentation officielle en ligne. Nous pensons que c'est un outil dont l'apprentissage mérite d'être approfondi car vraiment nécessaire lors de construction de projets.
