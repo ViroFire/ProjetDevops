@@ -1,3 +1,11 @@
 /.metadata/
 /.classpath
 /.settings/
+*.class
+*.log
+*.jar
+
+target/maven-archiver/
+target/maven-status/
+target/surefire-reports/
+target/jacoco.exec
