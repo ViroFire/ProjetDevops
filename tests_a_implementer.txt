@@ -1,0 +1,12 @@
+- fichier vide -> vide.csv
+- fichier rempli (string, int, double) -> rempli.csv
+- fichier au bon format -> bonCSV.csv
+- fichier au mauvais format -> mauvaisCSV.csv
+- valeur identique type double -> doubleIdentique.csv
+- tri par valeur double
+- recherche du maximum d'un int/double
+- recherche du minimum d'un int/double
+- addition des int/double
+- faire un pourcentage du nombre de valeurs > seuil
+- faire un pourcentage du nombre de valeurs < seuil
+- faire un pourcentage du nombre de valeurs = seuil

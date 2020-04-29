@@ -9,8 +9,8 @@
 
 
 ### Choix d'outils
-- Apache Maven : outil le plus appronfondi en cours, pouvoir définir un format par défaut du projet, automatisation de l'intégration continue (en lien avec Travis CI)
-- Travis CI : pouvoir gérer l'intégration continue depuis GitHub (lieu du dépôt)
+- Apache Maven : outil le plus appronfondi en cours, pouvoir définir un format par défaut du projet, automatisation de l'intégration continue (en lien avec Travis CI). Utilisation de codecov pour la couverture de code avec ajout du badge de couverture de code sur le README.md
+- Travis CI : pouvoir gérer l'intégration continue depuis GitHub (lieu du dépôt) avec ajout du badge "build" sur le README.md
 - JUnit : automatisation des tests
 
 
