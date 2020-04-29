@@ -1,6 +1,8 @@
 # Projet DevOps - M1 Informatique 2019-2020
 ## Une bibliothèque d’analyse de données en Java
 
+[![codecov](https://codecov.io/gh/ViroFire/ProjetDevops/branch/master/graph/badge.svg?token=Q7TUFZY53B)](https://codecov.io/gh/ViroFire/ProjetDevops)
+
 ### Fonctionnalités fournies
 
 
@@ -14,3 +16,4 @@
 
 ### Feedback
 - Maven est un outil qui a l'air très complet et pratique, qui peut finalement résoudre nombre de problèmes relativement "facilement". Malgré tout l'outil est assez compliqué à configurer, notamment le fichier pom.xml, même avec le cours et la documentation officielle en ligne. Nous pensons que c'est un outil dont l'apprentissage mérite d'être approfondi car vraiment nécessaire lors de construction de projets.
+
