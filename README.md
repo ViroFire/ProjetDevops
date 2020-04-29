@@ -3,7 +3,7 @@
 
 [![codecov](https://codecov.io/gh/ViroFire/ProjetDevops/branch/master/graph/badge.svg?token=Q7TUFZY53B)](https://codecov.io/gh/ViroFire/ProjetDevops)
 
-[![build](https://travis-ci.com/ViroFire/ProjetDevops.svg?token=FXtNVbUpNMLYMFx4sVxD&branch=master)]
+![build](https://travis-ci.com/ViroFire/ProjetDevops.svg?token=FXtNVbUpNMLYMFx4sVxD&branch=master)
 
 ### Fonctionnalités fournies
 
