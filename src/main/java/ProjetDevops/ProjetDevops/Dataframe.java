@@ -11,14 +11,7 @@ public class Dataframe {
 	ArrayList<Column> colonnes;
 	ArrayList<Line> lignes;
 	Scanner scanner;
-	
-	public enum DataType {
-		INTEGER,
-		DOUBLE,
-		STRING,
-		UNDEF
-	}
-	
+
 	/**
 	 * Créer un dataframe à partir du nom d'un fichier csv
 	 * @param file
