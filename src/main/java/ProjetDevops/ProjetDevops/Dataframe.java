@@ -10,11 +10,10 @@ public class Dataframe {
 	FileInputStream file;
 	ArrayList<Column> colonnes;
 	ArrayList<Line> lignes;
-	
 	Scanner scanner;
 	
 	/**
-	 * Permet de créer un Datframe à partir du nom d'un fichier csv
+	 * Créer un dataframe à partir du nom d'un fichier csv
 	 * @param file
 	 * @throws FileNotFoundException 
 	 */
@@ -27,40 +26,38 @@ public class Dataframe {
 	}
 	
 	/**
-	 * Permet la construction d'un Dataframe à partir d'un tableau 2D de String,
-	 * Premiere lignes : noms de colonnes
-	 * Seconde ligne : Type des colonnes (INTEGER, DOUBLE et STRING)
-	 * Suite : données
-	 * @param data (Tableau qui contient les données sous forme de string).
+	 * Construit d'un dataframe à partir d'un tableau 2D de String
+	 * Premiere lignes : noms de colonnes / Deuxième ligne : type des colonnes / Données
+	 * @param tab (contient les données sous forme de string)
 	 */
-	public Dataframe(String[][] data) {
+	public Dataframe(String[][] tab) {
 		colonnes = new ArrayList<Column>();
 		lignes = new ArrayList<Line>();
 		// Création des colonnes
 		DataType currentType;
 		String currentName;
-		for(int i = 0; i<data[0].length;i++) {
-			currentName = data[0][i];
-			if(data[1][i].equalsIgnoreCase("INTERGER")) {
-				currentType=DataType.INTEGER;
+		for(int i = 0; i < tab[0].length; i++) {
+			currentName = tab[0][i];
+			if(tab[1][i].equalsIgnoreCase("INTERGER")) {
+				currentType = DataType.INTEGER;
 			}
-			else if(data[1][i].equalsIgnoreCase("DOUBLE")) {
-				currentType=DataType.DOUBLE;
+			else if(tab[1][i].equalsIgnoreCase("DOUBLE")) {
+				currentType = DataType.DOUBLE;
 			}
-			else if(data[1][i].equalsIgnoreCase("STRING")) {
-				currentType=DataType.STRING;
+			else if(tab[1][i].equalsIgnoreCase("STRING")) {
+				currentType = DataType.STRING;
 			}
 			else {
-				currentType=DataType.UNDEFINED;
+				currentType = DataType.UNDEFINED;
 			}
-			colonnes.add(new Column(currentName,currentType));
+			colonnes.add(new Column(currentName, currentType));
 		}
-		// Ajout des lignes
+		// Ajout lignes
 		ArrayList<String> currentData = new ArrayList<String>();
-		for(int i = 2; i<data.length;i++) {
-			if(data[i].length == this.colonnes.size()) {
-				for(int j = 0;j<data[i].length;j++) {
-					currentData.add(data[i][j]);
+		for(int i = 2; i < tab.length; i++) {
+			if(tab[i].length == this.colonnes.size()) {
+				for(int j = 0; j < tab[i].length; j++) {
+					currentData.add(tab[i][j]);
 				}
 				lignes.add(new Line(extracted(currentData)));
 				currentData.clear();
@@ -74,25 +71,29 @@ public class Dataframe {
 	}
 	
 	/**
-	 * Lit le fichier CSV et complete les listes colonnes et lignes
+	 * Lit le fichier CSV et remplit les listes colonnes et lignes
 	 */
 	private void readCSV() {
-		//Création d'une liste de tableaud e string pour stocker les donné du fichier .csv
+		// Création d'une liste de tableau de String pour stocker les données du fichier .csv
 		ArrayList<String[]> dataCSV = new ArrayList<String[]>();
-		//Récupération du contenue du fichier CSV
+		
+		// Récupération du contenu du fichier .csv
 		while(scanner.hasNextLine()) {
 			dataCSV.add(scanner.nextLine().replaceAll("\"", "").split(";"));
 		}
-		//Création des colonnes et ajout des noms
+		
+		// Création des colonnes et ajout des noms
 		String[] currentLine;
 		int sizeData = dataCSV.get(0).length;
-		currentLine=dataCSV.get(0);
-		for(int i = 0; i<sizeData;i++) {
+		currentLine = dataCSV.get(0);
+		
+		for(int i = 0; i<sizeData; i++) {
 			colonnes.add(new Column(currentLine[i]));
 		}
-		//Création des lignes
-		for(int i = 1; i<dataCSV.size();i++) {
-			currentLine=dataCSV.get(i);
+		
+		// Création des lignes
+		for(int i = 1; i < dataCSV.size(); i++) {
+			currentLine = dataCSV.get(i);
 			lignes.add(new Line(currentLine.clone()));
 		}
 	}
