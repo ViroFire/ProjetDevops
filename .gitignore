@@ -11,3 +11,4 @@ target/surefire-reports/
 target/jacoco.exec
 target/classes/ProjetDevops/ProjetDevops/*.class
 target/site/*
+target/classes/.gitignore
