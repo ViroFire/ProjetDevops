@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Dataframe {
 	
 	FileInputStream file;
-	String[] nomsColonnes;
 	ArrayList<Column> colonnes;
 	ArrayList<Line> lignes;
 	
@@ -69,6 +68,7 @@ public class Dataframe {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private ArrayList<String> extracted(ArrayList<String> currentData) {
 		return (ArrayList<String>) currentData.clone();
 	}
@@ -77,12 +77,28 @@ public class Dataframe {
 	 * Lit le fichier CSV et complete les listes colonnes et lignes
 	 */
 	private void readCSV() {
-		
-	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		 System.out.println( "Hello World! to dataframe" );
+		//Création d'une liste de tableaud e string pour stocker les donné du fichier .csv
+		ArrayList<String[]> dataCSV = new ArrayList<String[]>();
+		//Récupération du contenue du fichier CSV
+		while(scanner.hasNextLine()) {
+			dataCSV.add(scanner.nextLine().replaceAll("\"", "").split(";"));
+		}
+		//Création des colonnes et ajout des noms
+		String[] currentLine;
+		int sizeData = dataCSV.get(0).length;
+		currentLine=dataCSV.get(0);
+		for(int i = 0; i<sizeData;i++) {
+			colonnes.add(new Column(currentLine[i]));
+		}
+		//Création des lignes
+		for(int i = 1; i<dataCSV.size();i++) {
+			currentLine=dataCSV.get(i);
+			lignes.add(new Line(currentLine.clone()));
+		}
 	}
 
+	@Override
+	public String toString() {
+		return "Dataframe [colonnes=" + colonnes.toString() + ", lignes=" + lignes.toString() + "]";
+	}
 }

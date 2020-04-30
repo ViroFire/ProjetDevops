@@ -15,16 +15,27 @@ public class Line {
 <span class="nc" id="L15">		}</span>
 		
 		/**
+		 * Permet d'ajouter une ligne avec un tableau de String
+		 * @param data (Tableau de string).
+		 */
+<span class="fc" id="L21">		public Line(String[] data) {</span>
+<span class="fc" id="L22">			this.data = new ArrayList&lt;String&gt;();</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">			for(int i = 0;i&lt;data.length;i++) {</span>
+<span class="fc" id="L24">				this.data.add(String.copyValueOf(data[i].toCharArray()));</span>
+			}
+<span class="fc" id="L26">		}</span>
+		
+		/**
 		 * Permet de récupèrer la ligne complete
 		 * @return data (L'ArrayList de données de la ligne).
 		 */
 		public ArrayList&lt;String&gt; getData() {
-<span class="nc" id="L22">			return data;</span>
+<span class="nc" id="L33">			return data;</span>
 		}
 
 		@Override
 		public String toString() {
-<span class="nc" id="L27">			return &quot;Line [data=&quot; + data + &quot;]&quot;;</span>
+<span class="fc" id="L38">			return &quot;Line [data=&quot; + data + &quot;]&quot;;</span>
 		}
 		
 		

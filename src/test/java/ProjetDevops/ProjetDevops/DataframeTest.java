@@ -1,7 +1,5 @@
 package ProjetDevops.ProjetDevops;
 
-import static org.junit.Assert.*;
-
 import java.io.FileNotFoundException;
 
 import org.junit.After;
@@ -19,11 +17,23 @@ public class DataframeTest {
 		// TODO Auto-generated method stub
 
 	}
-
+	 
+	 @Test
+	 public void TestDataframeBon() throws FileNotFoundException {
+		 Dataframe data = new Dataframe("data_sources/bonCSV.csv");
+		 data.toString();
+	 }
+	 
+	 @Test
+	 public void TestDataframeRempli() throws FileNotFoundException {
+		 Dataframe data = new Dataframe("data_sources/rempli.csv"); 
+		 data.toString();
+	 }
 
 	@Test
-	public void testDataframeVide() throws FileNotFoundException {
-		Dataframe data = new Dataframe("data_sources/vide.csv");
+	public void TestDataframeVide() throws FileNotFoundException {
+		Dataframe data = new Dataframe("data_sources/bonCSV.csv");
+		data.toString();
 	}
 
 }

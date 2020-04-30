@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Dataframe {
 	
 	FileInputStream file;
-	String[] nomsColonnes;
 	ArrayList&lt;Column&gt; colonnes;
 	ArrayList&lt;Line&gt; lignes;
 	
@@ -19,13 +18,13 @@ public class Dataframe {
 	 * @param file
 	 * @throws FileNotFoundException 
 	 */
-<span class="nc" id="L22">	public Dataframe(String file) throws FileNotFoundException {</span>
-<span class="nc" id="L23">		colonnes = new ArrayList&lt;Column&gt;();</span>
-<span class="nc" id="L24">		lignes = new ArrayList&lt;Line&gt;();</span>
-<span class="nc" id="L25">		this.file = new FileInputStream(file);</span>
-<span class="nc" id="L26">		scanner = new Scanner(this.file);</span>
-<span class="nc" id="L27">		readCSV();</span>
-<span class="nc" id="L28">	}</span>
+<span class="fc" id="L21">	public Dataframe(String file) throws FileNotFoundException {</span>
+<span class="fc" id="L22">		colonnes = new ArrayList&lt;Column&gt;();</span>
+<span class="fc" id="L23">		lignes = new ArrayList&lt;Line&gt;();</span>
+<span class="fc" id="L24">		this.file = new FileInputStream(file);</span>
+<span class="fc" id="L25">		scanner = new Scanner(this.file);</span>
+<span class="fc" id="L26">		readCSV();</span>
+<span class="fc" id="L27">	}</span>
 	
 	/**
 	 * Permet la construction d'un Dataframe à partir d'un tableau 2D de String,
@@ -34,41 +33,42 @@ public class Dataframe {
 	 * Suite : données
 	 * @param data (Tableau qui contient les données sous forme de string).
 	 */
-<span class="nc" id="L37">	public Dataframe(String[][] data) {</span>
-<span class="nc" id="L38">		colonnes = new ArrayList&lt;Column&gt;();</span>
-<span class="nc" id="L39">		lignes = new ArrayList&lt;Line&gt;();</span>
+<span class="nc" id="L36">	public Dataframe(String[][] data) {</span>
+<span class="nc" id="L37">		colonnes = new ArrayList&lt;Column&gt;();</span>
+<span class="nc" id="L38">		lignes = new ArrayList&lt;Line&gt;();</span>
 		// Création des colonnes
 		DataType currentType;
 		String currentName;
-<span class="nc bnc" id="L43" title="All 2 branches missed.">		for(int i = 0; i&lt;data[0].length;i++) {</span>
-<span class="nc" id="L44">			currentName = data[0][i];</span>
-<span class="nc bnc" id="L45" title="All 2 branches missed.">			if(data[1][i].equalsIgnoreCase(&quot;INTERGER&quot;)) {</span>
-<span class="nc" id="L46">				currentType=DataType.INTEGER;</span>
-<span class="nc" id="L47">			}</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">			else if(data[1][i].equalsIgnoreCase(&quot;DOUBLE&quot;)) {</span>
-<span class="nc" id="L49">				currentType=DataType.DOUBLE;</span>
-<span class="nc" id="L50">			}</span>
-<span class="nc bnc" id="L51" title="All 2 branches missed.">			else if(data[1][i].equalsIgnoreCase(&quot;STRING&quot;)) {</span>
-<span class="nc" id="L52">				currentType=DataType.STRING;</span>
-<span class="nc" id="L53">			}</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">		for(int i = 0; i&lt;data[0].length;i++) {</span>
+<span class="nc" id="L43">			currentName = data[0][i];</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">			if(data[1][i].equalsIgnoreCase(&quot;INTERGER&quot;)) {</span>
+<span class="nc" id="L45">				currentType=DataType.INTEGER;</span>
+<span class="nc" id="L46">			}</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">			else if(data[1][i].equalsIgnoreCase(&quot;DOUBLE&quot;)) {</span>
+<span class="nc" id="L48">				currentType=DataType.DOUBLE;</span>
+<span class="nc" id="L49">			}</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">			else if(data[1][i].equalsIgnoreCase(&quot;STRING&quot;)) {</span>
+<span class="nc" id="L51">				currentType=DataType.STRING;</span>
+<span class="nc" id="L52">			}</span>
 			else {
-<span class="nc" id="L55">				currentType=DataType.UNDEFINED;</span>
+<span class="nc" id="L54">				currentType=DataType.UNDEFINED;</span>
 			}
-<span class="nc" id="L57">			colonnes.add(new Column(currentName,currentType));</span>
+<span class="nc" id="L56">			colonnes.add(new Column(currentName,currentType));</span>
 		}
 		// Ajout des lignes
-<span class="nc" id="L60">		ArrayList&lt;String&gt; currentData = new ArrayList&lt;String&gt;();</span>
-<span class="nc bnc" id="L61" title="All 2 branches missed.">		for(int i = 2; i&lt;data.length;i++) {</span>
-<span class="nc bnc" id="L62" title="All 2 branches missed.">			if(data[i].length == this.colonnes.size()) {</span>
-<span class="nc bnc" id="L63" title="All 2 branches missed.">				for(int j = 0;j&lt;data[i].length;j++) {</span>
-<span class="nc" id="L64">					currentData.add(data[i][j]);</span>
+<span class="nc" id="L59">		ArrayList&lt;String&gt; currentData = new ArrayList&lt;String&gt;();</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">		for(int i = 2; i&lt;data.length;i++) {</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">			if(data[i].length == this.colonnes.size()) {</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">				for(int j = 0;j&lt;data[i].length;j++) {</span>
+<span class="nc" id="L63">					currentData.add(data[i][j]);</span>
 				}
-<span class="nc" id="L66">				lignes.add(new Line(extracted(currentData)));</span>
-<span class="nc" id="L67">				currentData.clear();</span>
+<span class="nc" id="L65">				lignes.add(new Line(extracted(currentData)));</span>
+<span class="nc" id="L66">				currentData.clear();</span>
 			}
 		}
-<span class="nc" id="L70">	}</span>
+<span class="nc" id="L69">	}</span>
 
+	@SuppressWarnings(&quot;unchecked&quot;)
 	private ArrayList&lt;String&gt; extracted(ArrayList&lt;String&gt; currentData) {
 <span class="nc" id="L73">		return (ArrayList&lt;String&gt;) currentData.clone();</span>
 	}
@@ -77,13 +77,29 @@ public class Dataframe {
 	 * Lit le fichier CSV et complete les listes colonnes et lignes
 	 */
 	private void readCSV() {
-		
-<span class="nc" id="L81">	}</span>
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-<span class="nc" id="L85">		 System.out.println( &quot;Hello World! to dataframe&quot; );</span>
-<span class="nc" id="L86">	}</span>
+		//Création d'une liste de tableaud e string pour stocker les donné du fichier .csv
+<span class="fc" id="L81">		ArrayList&lt;String[]&gt; dataCSV = new ArrayList&lt;String[]&gt;();</span>
+		//Récupération du contenue du fichier CSV
+<span class="fc bfc" id="L83" title="All 2 branches covered.">		while(scanner.hasNextLine()) {</span>
+<span class="fc" id="L84">			dataCSV.add(scanner.nextLine().split(&quot;;&quot;));</span>
+		}
+		//Création des colonnes et ajout des noms
+		String[] currentLine;
+<span class="fc" id="L88">		int sizeData = dataCSV.get(0).length;</span>
+<span class="fc" id="L89">		currentLine=dataCSV.get(0);</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">		for(int i = 0; i&lt;sizeData;i++) {</span>
+<span class="fc" id="L91">			colonnes.add(new Column(currentLine[i]));</span>
+		}
+		//Création des lignes
+<span class="fc bfc" id="L94" title="All 2 branches covered.">		for(int i = 1; i&lt;dataCSV.size();i++) {</span>
+<span class="fc" id="L95">			currentLine=dataCSV.get(i);</span>
+<span class="fc" id="L96">			lignes.add(new Line(currentLine.clone()));</span>
+		}
+<span class="fc" id="L98">	}</span>
 
+	@Override
+	public String toString() {
+<span class="fc" id="L102">		return &quot;Dataframe [colonnes=&quot; + colonnes + &quot;, lignes=&quot; + lignes + &quot;]&quot;;</span>
+	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
