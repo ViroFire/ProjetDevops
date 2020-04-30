@@ -34,21 +34,21 @@ public class Dataframe {
 		colonnes = new ArrayList<Column>();
 		lignes = new ArrayList<Line>();
 		// Création des colonnes
-		DataType currentType;
+		TypeData currentType;
 		String currentName;
 		for(int i = 0; i < tab[0].length; i++) {
 			currentName = tab[0][i];
 			if(tab[1][i].equalsIgnoreCase("INTERGER")) {
-				currentType = DataType.INTEGER;
+				currentType = TypeData.INTEGER;
 			}
 			else if(tab[1][i].equalsIgnoreCase("DOUBLE")) {
-				currentType = DataType.DOUBLE;
+				currentType = TypeData.DOUBLE;
 			}
 			else if(tab[1][i].equalsIgnoreCase("STRING")) {
-				currentType = DataType.STRING;
+				currentType = TypeData.STRING;
 			}
 			else {
-				currentType = DataType.UNDEF;
+				currentType = TypeData.UNDEF;
 			}
 			colonnes.add(new Column(currentName, currentType));
 		}

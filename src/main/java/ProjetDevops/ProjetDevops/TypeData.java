@@ -1,6 +1,6 @@
 package ProjetDevops.ProjetDevops;
 
-public enum DataType {
+public enum TypeData {
 	INTEGER,
 	DOUBLE,
 	STRING,
