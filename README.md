@@ -6,6 +6,9 @@
 ![build](https://travis-ci.com/ViroFire/ProjetDevops.svg?token=FXtNVbUpNMLYMFx4sVxD&branch=DataframeDev)
 
 ### Fonctionnalités fournies
+- Dataframe :
+	- Création d'un dataframe sous forme de tableau de String
+	- Création d'un dataframe à partir d'un fichier .csv
 
 
 ### Choix d'outils
