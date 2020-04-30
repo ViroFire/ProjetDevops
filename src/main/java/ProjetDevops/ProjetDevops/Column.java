@@ -3,7 +3,8 @@ package ProjetDevops.ProjetDevops;
 public class Column {
 	
 	private String name;
-	private DataType type;
+	private TypeData type;
+
 	
 	/**
 	 * Constructeur de colonne. Le nom est passé en paramètre et le
@@ -12,7 +13,7 @@ public class Column {
 	 */
 	public Column(String name) {
 		this.name = name;
-		this.type = DataType.UNDEFINED;
+		this.type = TypeData.UNDEF;
 	}
 	
 	/**
@@ -21,7 +22,7 @@ public class Column {
 	 * @param name (nom de la nouvelle colonne)
 	 * @param type (type de la nouvelle colonne)
 	 */
-	public Column(String name, DataType type) {
+	public Column(String name, TypeData type) {
 		this.name = name;
 		this.type = type;
 	}
@@ -38,7 +39,7 @@ public class Column {
 	 * Renvoie le type de la colonne.
 	 * @return type (Type de la colonne).
 	 */
-	public DataType getType() {
+	public TypeData getType() {
 		return type;
 	}
 
