@@ -28,6 +28,14 @@ public class Column {
 	}
 	
 	/**
+	 * Donne un nouveau type a la colonne
+	 * @param type
+	 */
+	public void setType(TypeData type) {
+		this.type=type;
+	}
+	
+	/**
 	 * Renvoie le nom de la colonne.
 	 * @return name (Nom de la colonne).
 	 */
@@ -45,7 +53,7 @@ public class Column {
 
 	@Override
 	public String toString() {
-		return "Column [name=" + name + "]";
+		return "Column [name=" + name + "type=" + type +"]" ;
 	}
 	
 }

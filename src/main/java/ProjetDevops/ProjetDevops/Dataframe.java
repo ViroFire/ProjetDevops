@@ -88,13 +88,39 @@ public class Dataframe {
 		currentLine = dataCSV.get(0);
 		
 		for(int i = 0; i<sizeData; i++) {
-			colonnes.add(new Column(currentLine[i]));
+			colonnes.add(new Column(currentLine[i],TypeData.UNDEF));
 		}
 		
 		// Création des lignes
 		for(int i = 1; i < dataCSV.size(); i++) {
 			currentLine = dataCSV.get(i);
 			lignes.add(new Line(currentLine.clone()));
+		}
+		
+		//Ajout de typedata au colonnes
+		if(lignes.size()>0) {
+			Line firstLine = lignes.get(0);
+			Column currentColonne;
+			String currentString;
+			TypeData typeColoumn;
+			for(int i=0;i<colonnes.size();i++) {
+				currentString = firstLine.getData().get(i);
+				currentColonne = colonnes.get(i);
+				try {
+					Integer.parseInt(currentString);
+					typeColoumn=TypeData.INTEGER;
+				} catch (Exception e) {
+					// TODO: handle exception
+					try {
+						Float.parseFloat(currentString);
+						typeColoumn=TypeData.DOUBLE;
+					} catch (Exception e2) {
+						// TODO: handle exception
+						typeColoumn=TypeData.STRING;
+					}
+				}
+				currentColonne.setType(typeColoumn);
+			}
 		}
 	}
 

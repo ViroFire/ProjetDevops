@@ -32,7 +32,7 @@ public class DataframeTest {
 
 	@Test
 	public void TestDataframeVide() throws FileNotFoundException {
-		Dataframe data = new Dataframe("data_sources/bonCSV.csv");
+		Dataframe data = new Dataframe("data_sources/vide.csv");
 		data.toString();
 	}
 
