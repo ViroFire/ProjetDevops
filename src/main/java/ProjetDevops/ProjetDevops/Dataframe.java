@@ -12,6 +12,13 @@ public class Dataframe {
 	ArrayList<Line> lignes;
 	Scanner scanner;
 	
+	public enum DataType {
+		INTEGER,
+		DOUBLE,
+		STRING,
+		UNDEF
+	}
+	
 	/**
 	 * Créer un dataframe à partir du nom d'un fichier csv
 	 * @param file
@@ -48,7 +55,7 @@ public class Dataframe {
 				currentType = DataType.STRING;
 			}
 			else {
-				currentType = DataType.UNDEFINED;
+				currentType = DataType.UNDEF;
 			}
 			colonnes.add(new Column(currentName, currentType));
 		}
