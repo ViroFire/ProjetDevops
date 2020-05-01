@@ -145,15 +145,4 @@ public class AffichageDataframeTest {
 			e.printStackTrace();
 		}
 	}
-	
-	@Test
-	public void Notfile() {
-		try {
-			Dataframe data = new Dataframe("data_sources/null.csv");
-			data.printDataframe();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 }

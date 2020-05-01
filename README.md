@@ -2,9 +2,9 @@
 ## Une bibliothèque d’analyse de données en Java
 
 
-[![codecov](https://codecov.io/gh/ViroFire/ProjetDevops/branch/AffichageDataframe/graph/badge.svg?token=Q7TUFZY53B)](https://codecov.io/gh/ViroFire/ProjetDevops)
+[![codecov](https://codecov.io/gh/ViroFire/ProjetDevops/branch/develop/graph/badge.svg?token=Q7TUFZY53B)](https://codecov.io/gh/ViroFire/ProjetDevops)
 
-![build](https://travis-ci.com/ViroFire/ProjetDevops.svg?token=FXtNVbUpNMLYMFx4sVxD&branch=AffichageDataframe)
+![build](https://travis-ci.com/ViroFire/ProjetDevops.svg?token=FXtNVbUpNMLYMFx4sVxD&branch=develop)
 
 
 ### Fonctionnalités fournies
