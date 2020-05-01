@@ -1,6 +1,10 @@
 package ProjetDevops.ProjetDevops;
 
+import static org.junit.Assert.*;
+
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 
 import org.junit.After;
 import org.junit.Before;
@@ -8,32 +12,42 @@ import org.junit.Test;
 
 public class DataframeTest {
 
-	 @Before
-	 public void init() {
-	 }
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
 	
-	 @After
-	 public void cleanUp() {
-		// TODO Auto-generated method stub
-
-	}
-	 
-	 @Test
-	 public void TestDataframeBon() throws FileNotFoundException {
-		 Dataframe data = new Dataframe("data_sources/bonCSV.csv");
-		 data.toString();
-	 }
-	 
-	 @Test
-	 public void TestDataframeRempli() throws FileNotFoundException {
-		 Dataframe data = new Dataframe("data_sources/rempli.csv"); 
-		 data.toString();
-	 }
-
+	@Before
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
+    @After
+    public void restoreStreams() {
+        System.setOut(originalOut);
+    }
+	
+    @Test
+    public void testFile() throws FileNotFoundException {
+    	Dataframe df = new Dataframe("./data_sources/vide.csv");
+    	Dataframe df2 = new Dataframe("./data_sources/rempli.csv");
+    }
+    
+    public void testDoublonFile() throws FileNotFoundException {
+    	Dataframe df = new Dataframe("./data_sources/vide.csv");
+    	Dataframe df2 = new Dataframe("./data_sources/rempli.csv");
+    	assertFalse("fichiers identiques", df.equals(df2));
+    	Dataframe df3 = new Dataframe("./data_sources/rempli.csv");
+    	assertTrue("fichiers identiques", df3.equals(df2));
+    }
+    
 	@Test
-	public void TestDataframeVide() throws FileNotFoundException {
-		Dataframe data = new Dataframe("data_sources/vide.csv");
-		data.toString();
+	public void testDoublon() {
+		String[][] data = {{"c1", "c2", "c3"},
+							{"STRING", "INTEGER", "DOUBLE"},
+							{"1", "2", "3"},
+							{"4", "5", "6"}
+							};
+		Dataframe df = new Dataframe(data);
+		Dataframe df2 = new Dataframe(data);
+		assertFalse("Deux dataframes identiques", df.equals(df2));
 	}
 
 }
