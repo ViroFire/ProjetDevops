@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class Dataframe {
 	
 	FileInputStream file;
-	ArrayList<Column> colonnes;
-	ArrayList<Line> lignes;
+	ArrayList<Colonne> colonnes;
+	ArrayList<Ligne> lignes;
 	Scanner scanner;
 
 	/**
@@ -18,8 +18,8 @@ public class Dataframe {
 	 * @throws FileNotFoundException 
 	 */
 	public Dataframe(String file) throws FileNotFoundException {
-		colonnes = new ArrayList<Column>();
-		lignes = new ArrayList<Line>();
+		colonnes = new ArrayList<Colonne>();
+		lignes = new ArrayList<Ligne>();
 		this.file = new FileInputStream(file);
 		scanner = new Scanner(this.file);
 		readCSV();
@@ -27,12 +27,12 @@ public class Dataframe {
 	
 	/**
 	 * Construit d'un dataframe à partir d'un tableau 2D de String
-	 * Premiere lignes : noms de colonnes / Deuxième ligne : type des colonnes / Données
-	 * @param tab (contient les données sous forme de string)
+	 * Noms de colonnes / Type des colonnes / Données
+	 * @param tab (contient les données sous forme de String)
 	 */
 	public Dataframe(String[][] tab) {
-		colonnes = new ArrayList<Column>();
-		lignes = new ArrayList<Line>();
+		colonnes = new ArrayList<Colonne>();
+		lignes = new ArrayList<Ligne>();
 		// Création des colonnes
 		TypeData currentType;
 		String currentName;
@@ -50,7 +50,7 @@ public class Dataframe {
 			else {
 				currentType = TypeData.UNDEF;
 			}
-			colonnes.add(new Column(currentName, currentType));
+			colonnes.add(new Colonne(currentName, currentType));
 		}
 		// Ajout lignes
 		ArrayList<String> currentData = new ArrayList<String>();
@@ -59,7 +59,7 @@ public class Dataframe {
 				for(int j = 0; j < tab[i].length; j++) {
 					currentData.add(tab[i][j]);
 				}
-				lignes.add(new Line(extracted(currentData)));
+				lignes.add(new Ligne(extracted(currentData)));
 				currentData.clear();
 			}
 		}
@@ -88,38 +88,39 @@ public class Dataframe {
 		currentLine = dataCSV.get(0);
 		
 		for(int i = 0; i<sizeData; i++) {
-			colonnes.add(new Column(currentLine[i],TypeData.UNDEF));
+			colonnes.add(new Colonne(currentLine[i], TypeData.UNDEF));
 		}
 		
 		// Création des lignes
 		for(int i = 1; i < dataCSV.size(); i++) {
 			currentLine = dataCSV.get(i);
-			lignes.add(new Line(currentLine.clone()));
+			lignes.add(new Ligne(currentLine.clone()));
 		}
 		
-		//Ajout de typedata au colonnes
-		if(lignes.size()>0) {
-			Line firstLine = lignes.get(0);
-			Column currentColonne;
+		// Ajout de typedata aux colonnes
+		if(lignes.size() > 0) {
+			Ligne firstLine = lignes.get(0);
+			Colonne currentColonne;
 			String currentString;
-			TypeData typeColoumn;
-			for(int i=0;i<colonnes.size();i++) {
+			TypeData typeColonne;
+			
+			for(int i = 0; i < colonnes.size(); i++) {
 				currentString = firstLine.getData().get(i);
 				currentColonne = colonnes.get(i);
 				try {
 					Integer.parseInt(currentString);
-					typeColoumn=TypeData.INTEGER;
+					typeColonne = TypeData.INTEGER;
 				} catch (Exception e) {
 					// TODO: handle exception
 					try {
 						Float.parseFloat(currentString);
-						typeColoumn=TypeData.DOUBLE;
+						typeColonne = TypeData.DOUBLE;
 					} catch (Exception e2) {
 						// TODO: handle exception
-						typeColoumn=TypeData.STRING;
+						typeColonne = TypeData.STRING;
 					}
 				}
-				currentColonne.setType(typeColoumn);
+				currentColonne.setType(typeColonne);
 			}
 		}
 	}
