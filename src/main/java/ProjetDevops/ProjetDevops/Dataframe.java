@@ -13,7 +13,7 @@ public class Dataframe {
 	Scanner scanner;
 
 	/**
-	 * Créer un dataframe à partir du nom d'un fichier csv
+	 * Créer un dataframe à partir du nom d'un fichier .csv
 	 * @param file
 	 * @throws FileNotFoundException 
 	 */
@@ -127,6 +127,6 @@ public class Dataframe {
 
 	@Override
 	public String toString() {
-		return "Dataframe [colonnes=" + colonnes.toString() + ", lignes=" + lignes.toString() + "]";
+		return "Dataframe [colonnes = " + colonnes.toString() + ", lignes = " + lignes.toString() + "]";
 	}
 }

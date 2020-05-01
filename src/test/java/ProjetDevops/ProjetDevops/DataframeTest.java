@@ -11,18 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class DataframeTest {
-
-	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
-	
-	@Before
-    public void setUpStreams() {
-        System.setOut(new PrintStream(outContent));
-    }
-    @After
-    public void restoreStreams() {
-        System.setOut(originalOut);
-    }
 	
     @Test
     public void testFile() throws FileNotFoundException {
@@ -48,6 +36,17 @@ public class DataframeTest {
 		Dataframe df = new Dataframe(data);
 		Dataframe df2 = new Dataframe(data);
 		assertFalse("Deux dataframes identiques", df.equals(df2));
+	}
+	
+	@Test
+	public void testToString() {
+		String[][] data = {{"c1", "c2", "c3"},
+				{"STRING", "INTEGER", "DOUBLE"},
+				{"1", "2", "3"},
+				{"4", "5", "6"}
+				};
+		Dataframe df = new Dataframe(data);
+		System.out.println(df.toString());
 	}
 
 }
