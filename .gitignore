@@ -9,3 +9,7 @@ target/maven-archiver/
 target/maven-status/
 target/surefire-reports/
 target/jacoco.exec
+target/classes/ProjetDevops/ProjetDevops/*.class
+target/site/*
+target/classes/.gitignore
+
