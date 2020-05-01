@@ -160,7 +160,7 @@ public class Dataframe {
 	 */
 	public void printFirstLines() {
 		printColonne();
-		for(int i = 0;i<2;i++) {
+		for(int i = 0;i<lignes.size() && i<2;i++) {
 			for(int j = 0; j<colonnes.size();j++) {
 				System.out.print(lignes.get(i).getData().get(j)+"; ");
 			}

@@ -1,13 +1,9 @@
 package ProjetDevops.ProjetDevops;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
 
-import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
-import java.io.PrintStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 public class DataframeTest {
