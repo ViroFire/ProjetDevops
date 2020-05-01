@@ -70,7 +70,6 @@ public class AffichageDataframeTest {
 			Dataframe data = new Dataframe("data_sources/bonCSV.csv");
 			data.printDataframe();
 			RetourSortiNormal();
-			System.out.println(streamSorti.toString());
 			assertEquals(stringref, streamSorti.toString());
 			assertNotEquals(BadRef, streamSorti.toString());
 			
