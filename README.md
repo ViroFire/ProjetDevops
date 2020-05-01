@@ -1,9 +1,9 @@
 # Projet DevOps - M1 Informatique 2019-2020
 ## Une bibliothèque d’analyse de données en Java
 
-[![codecov](https://codecov.io/gh/ViroFire/ProjetDevops/branch/DataframeDev/graph/badge.svg?token=Q7TUFZY53B)](https://codecov.io/gh/ViroFire/ProjetDevops)
+[![codecov](https://codecov.io/gh/ViroFire/ProjetDevops/branch/testsJUnit/graph/badge.svg?token=Q7TUFZY53B)](https://codecov.io/gh/ViroFire/ProjetDevops)
 
-![build](https://travis-ci.com/ViroFire/ProjetDevops.svg?token=FXtNVbUpNMLYMFx4sVxD&branch=DataframeDev)
+![build](https://travis-ci.com/ViroFire/ProjetDevops.svg?token=FXtNVbUpNMLYMFx4sVxD&branch=testsJUnit)
 
 ### Fonctionnalités fournies
 **Dataframe**
