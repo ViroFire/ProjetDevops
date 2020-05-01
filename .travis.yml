@@ -6,3 +6,8 @@ after_success:
 env:
 global:
   - CODECOV_TOKEN=:uuid-repo-token
+  
+# blocklist
+branches:
+  except:
+    - TestAffichage
