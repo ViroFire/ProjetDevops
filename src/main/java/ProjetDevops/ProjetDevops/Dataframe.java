@@ -38,7 +38,7 @@ public class Dataframe {
 		String currentName;
 		for(int i = 0; i < tab[0].length; i++) {
 			currentName = tab[0][i];
-			if(tab[1][i].equalsIgnoreCase("INTERGER")) {
+			if(tab[1][i].equalsIgnoreCase("INTEGER")) {
 				currentType = TypeData.INTEGER;
 			}
 			else if(tab[1][i].equalsIgnoreCase("DOUBLE")) {

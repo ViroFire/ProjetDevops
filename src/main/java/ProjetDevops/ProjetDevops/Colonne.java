@@ -53,7 +53,7 @@ public class Colonne {
 
 	@Override
 	public String toString() {
-		return "Column [nom=" + nom + "type=" + type +"]" ;
+		return "Colonne [nom=" + nom + "type=" + type +"]" ;
 	}
 	
 }
