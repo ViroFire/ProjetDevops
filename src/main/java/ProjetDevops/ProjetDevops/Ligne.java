@@ -36,7 +36,7 @@ public class Ligne {
 
 		@Override
 		public String toString() {
-			return "Ligne [data=" + data + "]";
+			return "Ligne [data = " + data + "]";
 		}
 		
 		

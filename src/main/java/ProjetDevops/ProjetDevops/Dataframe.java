@@ -13,7 +13,7 @@ public class Dataframe {
 	Scanner scanner;
 
 	/**
-	 * Créer un dataframe à partir du nom d'un fichier csv
+	 * Créer un dataframe à partir du nom d'un fichier .csv
 	 * @param file
 	 * @throws FileNotFoundException 
 	 */
@@ -38,7 +38,7 @@ public class Dataframe {
 		String currentName;
 		for(int i = 0; i < tab[0].length; i++) {
 			currentName = tab[0][i];
-			if(tab[1][i].equalsIgnoreCase("INTERGER")) {
+			if(tab[1][i].equalsIgnoreCase("INTEGER")) {
 				currentType = TypeData.INTEGER;
 			}
 			else if(tab[1][i].equalsIgnoreCase("DOUBLE")) {
@@ -187,6 +187,6 @@ public class Dataframe {
 	
 	@Override
 	public String toString() {
-		return "Dataframe [colonnes=" + colonnes.toString() + ", lignes=" + lignes.toString() + "]";
+		return "Dataframe [colonnes = " + colonnes.toString() + ", lignes = " + lignes.toString() + "]";
 	}
 }

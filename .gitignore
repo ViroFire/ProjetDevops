@@ -12,3 +12,4 @@ target/jacoco.exec
 target/classes/ProjetDevops/ProjetDevops/*.class
 target/site/*
 target/classes/.gitignore
+target/test-classes/.gitignore
