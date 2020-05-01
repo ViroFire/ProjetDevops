@@ -125,6 +125,66 @@ public class Dataframe {
 		}
 	}
 
+	/**
+	 * Affiche:
+	 * -Premier ligne : le nom de la colonne
+	 * -Deuxieme ligne : le type de la colonn
+	 */
+	public void printColonne() {
+		for(int i = 0;i<colonnes.size();i++) {
+			System.out.print(colonnes.get(i).getName()+": ");
+		}
+		System.out.println();
+		for(int i = 0;i<colonnes.size();i++) {
+			System.out.print(colonnes.get(i).getType().toString()+" ");
+		}
+		System.out.println();
+	}
+	
+	/**
+	 * Affiche sur la sortie standar, tous le contenu de la dataframe.
+	 */
+	public void printDataframe() {
+		printColonne();
+		for(int i = 0;i<lignes.size();i++) {
+			for(int j = 0;j<colonnes.size();j++) {
+				System.out.print(lignes.get(i).getData().get(j)+" ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+	
+	/**
+	 * Affiche sur la sortie standar, les 2 premiere ligne de la dataframe.
+	 */
+	public void printFirstLines() {
+		printColonne();
+		for(int i = 0;i<2;i++) {
+			for(int j = 0; j<colonnes.size();j++) {
+				System.out.print(lignes.get(i).getData().get(j)+"; ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+	
+	/**
+	 * Affiche sur la sortie standar, les 2 derniere ligne de la dataframe.
+	 */
+	public void printLastLines() {
+		printColonne();
+		for(int i = 0;i<lignes.size();i++) {
+			if(i>lignes.size()-3) {
+				for(int j = 0;j<colonnes.size();j++) {
+					System.out.print(lignes.get(i).getData().get(j)+"; ");
+				}
+				System.out.println();
+			}
+		}
+		System.out.println();
+	}
+	
 	@Override
 	public String toString() {
 		return "Dataframe [colonnes=" + colonnes.toString() + ", lignes=" + lignes.toString() + "]";

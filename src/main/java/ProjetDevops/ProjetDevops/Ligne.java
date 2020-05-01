@@ -24,10 +24,6 @@ public class Ligne {
 			for(int i = 0; i < data.length; i++) {
 				this.data.add(String.copyValueOf(data[i].toCharArray()));
 			}
-			
-			for(int i=0; i < this.data.size(); i++) {
-				System.out.println(this.data.get(i));
-			}
 		}
 		
 		/**
