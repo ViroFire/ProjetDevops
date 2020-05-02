@@ -12,42 +12,41 @@ import org.junit.Test;
 
 public class AffichageDataframeTest {
 
-	ByteArrayOutputStream streamSorti;
+	ByteArrayOutputStream streamOut;
 	PrintStream ps;
 	//Sauvegarde pour la sortie standar
-	PrintStream oldout;
+	PrintStream oldOut;
 	
 	/**
-	 * Change la sortie standar pour récupérer ce quie est envoyé
-	 * sur celle-ci
+	 * Change la sortie standard pour récupérer ce qui est envoyé
 	 */
-	private void CapSorti() {
-		streamSorti = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(streamSorti);
-		oldout = new PrintStream(System.out);
+	private void changeSortie() {
+		streamOut = new ByteArrayOutputStream();
+		PrintStream ps = new PrintStream(streamOut);
+		oldOut = new PrintStream(System.out);
 		System.setOut(ps);	
 	}
 	
 	/**
-	 * Permet de remettre la sortie standar par defaut
+	 * Permet de remettre la sortie standard par defaut
 	 */
-	private void RetourSortiNormal() {
+	private void defaultSortie() {
 		System.out.flush();
-		System.setOut(oldout);		
+		System.setOut(oldOut);		
 	}
 	
 	@Test
-	public void TestAffichageColonne() {
-		CapSorti();
-		String BadRef="";
-		String stringRef = "prenom: age: taille: \n" + 
-				"STRING INTEGER DOUBLE \n";
+	public void testAffichageColonne() {
+		changeSortie();
+		String BadRef = "";
+		String stringRef = "prenom: age: taille: \n" + "STRING INTEGER DOUBLE \n";
+		
 		try {
 			Dataframe data = new Dataframe("data_sources/rempli.csv");
-			data.printColonne();
-			RetourSortiNormal();
-			assertEquals(stringRef, streamSorti.toString() );
-			assertNotEquals(BadRef, streamSorti.toString());
+			data.affichageColonne();
+			defaultSortie();
+			assertEquals(stringRef, streamOut.toString());
+			assertNotEquals(BadRef, streamOut.toString());
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -57,21 +56,20 @@ public class AffichageDataframeTest {
 	}
 
 	@Test
-	public void testAfficherDataframe() {
-		CapSorti();
+	public void testAffichageDataframe() {
+		changeSortie();
+		String BadRef = "";
 		String stringref = "prenom: age: taille: \n" + 
-				"STRING INTEGER DOUBLE \n" + 
-				"Martin 15 1.75 \n" + 
-				"Pierre 20 1.82 \n" + 
-				"\n" + 
-				"";
-		String BadRef="";
+							"STRING INTEGER DOUBLE \n" + 
+							"Martin 15 1.75 \n" + 
+							"Pierre 20 1.82 \n" + "\n" + "";
+		
 		try {
 			Dataframe data = new Dataframe("data_sources/bonCSV.csv");
-			data.printDataframe();
-			RetourSortiNormal();
-			assertEquals(stringref, streamSorti.toString());
-			assertNotEquals(BadRef, streamSorti.toString());
+			data.affichageDataframe();
+			defaultSortie();
+			assertEquals(stringref, streamOut.toString());
+			assertNotEquals(BadRef, streamOut.toString());
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -80,22 +78,20 @@ public class AffichageDataframeTest {
 	}
 	
 	@Test
-	public void testAffichagePremierLignes() throws IOException {
-		CapSorti();
+	public void testAffichagePremieresLignes() throws IOException {
+		changeSortie();
+		String BadRef = "";
 		String stringref = "prenom: age: taille: \n" + 
 				"STRING INTEGER DOUBLE \n" + 
 				"Martin; 15; 1.75; \n" + 
-				"Pierre; 20; 1.82; \n" + 
-				"\n" + 
-				"";
-
-		String BadRef="";
+				"Pierre; 20; 1.82; \n" + "\n" + "";
+		
 		try {
 			Dataframe data = new Dataframe("data_sources/rempli.csv");
-			data.printFirstLines();
-			RetourSortiNormal();
-			assertEquals(stringref, streamSorti.toString());
-			assertNotEquals(BadRef, streamSorti.toString());
+			data.affichagePremieresLignes();
+			defaultSortie();
+			assertEquals(stringref, streamOut.toString());
+			assertNotEquals(BadRef, streamOut.toString());
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -104,41 +100,39 @@ public class AffichageDataframeTest {
 	}
 	
 	@Test
-	public void testAffichageDernierLignes() {
-		CapSorti();
+	public void testAffichageDernieresLignes() {
+		changeSortie();
+		String BadRef="";
 		String stringref = "prenom: age: taille: \n" + 
 				"STRING INTEGER DOUBLE \n" + 
 				"Antoine; 26; 1.83; \n" + 
-				"Mimi; 54; 1.21; \n" + 
-				"\n" + 
-				"";
-		String BadRef="";
+				"Mimi; 54; 1.21; \n" + "\n" + "";
+		
 		try {
 			Dataframe data = new Dataframe("data_sources/rempli.csv");
-			data.printLastLines();
-			RetourSortiNormal();
-			assertEquals(stringref, streamSorti.toString());
-			assertNotEquals(BadRef, streamSorti.toString());
+			data.affichageDernieresLignes();
+			defaultSortie();
+			assertEquals(stringref, streamOut.toString());
+			assertNotEquals(BadRef, streamOut.toString());
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
 	@Test
 	public void testAffichageDataframeVide() {
-		CapSorti();
-		String stringref = ": \n" + 
-				"UNDEF \n" + 
-				"\n" + 
-				"";
+		changeSortie();
 		String BadRef="";
+		String stringref = ": \n" + "UNDEF \n" + "\n" + "";
+		
 		try {
 			Dataframe data = new Dataframe("data_sources/vide.csv");
-			data.printFirstLines();
-			RetourSortiNormal();
-			assertEquals(stringref, streamSorti.toString());
-			assertNotEquals(BadRef, streamSorti.toString());
+			data.affichagePremieresLignes();
+			defaultSortie();
+			assertEquals(stringref, streamOut.toString());
+			assertNotEquals(BadRef, streamOut.toString());
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

@@ -127,28 +127,28 @@ public class Dataframe {
 
 	/**
 	 * Affiche:
-	 * -Premier ligne : le nom de la colonne
-	 * -Deuxieme ligne : le type de la colonn
+	 * le nom de la colonne
+	 * puis le type de la colonne
 	 */
-	public void printColonne() {
-		for(int i = 0;i<colonnes.size();i++) {
-			System.out.print(colonnes.get(i).getName()+": ");
+	public void affichageColonne() {
+		for(int i = 0; i < colonnes.size(); i++) {
+			System.out.print(colonnes.get(i).getName() + ": ");
 		}
 		System.out.println();
-		for(int i = 0;i<colonnes.size();i++) {
-			System.out.print(colonnes.get(i).getType().toString()+" ");
+		for(int i = 0; i < colonnes.size(); i++) {
+			System.out.print(colonnes.get(i).getType().toString() + " ");
 		}
 		System.out.println();
 	}
 	
 	/**
-	 * Affiche sur la sortie standar, tous le contenu de la dataframe.
+	 * Affiche le contenu du dataframe sur la sortie stantard
 	 */
-	public void printDataframe() {
-		printColonne();
-		for(int i = 0;i<lignes.size();i++) {
-			for(int j = 0;j<colonnes.size();j++) {
-				System.out.print(lignes.get(i).getData().get(j)+" ");
+	public void affichageDataframe() {
+		affichageColonne();
+		for(int i = 0; i < lignes.size(); i++) {
+			for(int j = 0; j < colonnes.size(); j++) {
+				System.out.print(lignes.get(i).getData().get(j) + " ");
 			}
 			System.out.println();
 		}
@@ -156,13 +156,13 @@ public class Dataframe {
 	}
 	
 	/**
-	 * Affiche sur la sortie standar, les 2 premiere ligne de la dataframe.
+	 * Affiche les 2 premières lignes du dataframe sur la sortie standard
 	 */
-	public void printFirstLines() {
-		printColonne();
-		for(int i = 0;i<lignes.size() && i<2;i++) {
-			for(int j = 0; j<colonnes.size();j++) {
-				System.out.print(lignes.get(i).getData().get(j)+"; ");
+	public void affichagePremieresLignes() {
+		affichageColonne();
+		for(int i = 0; i < lignes.size() && i<2; i++) {
+			for(int j = 0; j < colonnes.size(); j++) {
+				System.out.print(lignes.get(i).getData().get(j) + "; ");
 			}
 			System.out.println();
 		}
@@ -170,14 +170,14 @@ public class Dataframe {
 	}
 	
 	/**
-	 * Affiche sur la sortie standar, les 2 derniere ligne de la dataframe.
+	 * Affiche les 2 dernières lignes du dataframe sur la sortie standard
 	 */
-	public void printLastLines() {
-		printColonne();
-		for(int i = 0;i<lignes.size();i++) {
-			if(i>lignes.size()-3) {
-				for(int j = 0;j<colonnes.size();j++) {
-					System.out.print(lignes.get(i).getData().get(j)+"; ");
+	public void affichageDernieresLignes() {
+		affichageColonne();
+		for(int i = 0; i < lignes.size(); i++) {
+			if(i > lignes.size()-3) {
+				for(int j = 0;j < colonnes.size();j++) {
+					System.out.print(lignes.get(i).getData().get(j) +"; ");
 				}
 				System.out.println();
 			}
