@@ -1,6 +1,6 @@
 /.metadata/
-/classPath/
-/.settings/
+.classpath
+.settings/
 *.class
 *.log
 *.jar
@@ -13,3 +13,4 @@ target/classes/ProjetDevops/ProjetDevops/*.class
 target/site/*
 target/classes/.gitignore
 target/test-classes/.gitignore
+/target/
